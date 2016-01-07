@@ -46,6 +46,7 @@ namespace XkcdSlackbot
 
                 var data = new
                 {
+                    response_type = "in_channel",
                     text = xkcdUrl,
                     channel = request.Channel_Name == "directmessage" ? "@" + request.User_Name
                                                                       : "#" + request.Channel_Name,
