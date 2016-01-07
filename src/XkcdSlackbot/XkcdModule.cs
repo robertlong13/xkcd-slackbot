@@ -50,7 +50,8 @@ namespace XkcdSlackbot
                     text = "https://xkcd.com/3/",
                     channel = request.Channel_Name == "directmessage" ? "@" + request.User_Name
                                                                       : "#" + request.Channel_Name,
-                    unfurl_links = false
+                    unfurl_links = false,
+                    unfurl_media = false
                 };
 
                 using (var wc = new WebClient())
