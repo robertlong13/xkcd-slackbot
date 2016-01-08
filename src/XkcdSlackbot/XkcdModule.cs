@@ -18,6 +18,7 @@ namespace XkcdSlackbot
         public string Text { get; set; }
         public string Channel_Name { get; set; }
         public string User_Name { get; set; }
+        public string Response_URL { get; set; }
     }
 
     public class XkcdModule : NancyModule
@@ -56,7 +57,7 @@ namespace XkcdSlackbot
 
                 using (var wc = new WebClient())
                 {
-                    await wc.UploadStringTaskAsync(ConfigurationManager.AppSettings["SLACK_WEBHOOK_URL"], JsonConvert.SerializeObject(data));
+                    await wc.UploadStringTaskAsync(request.Response_URL, JsonConvert.SerializeObject(data));
                 }
 
                 return 200;
