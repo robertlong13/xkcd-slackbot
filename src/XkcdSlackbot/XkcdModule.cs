@@ -54,12 +54,12 @@ namespace XkcdSlackbot
                     unfurl_links = true
                 };
 
-                using (var wc = new WebClient())
-                {
-                    await wc.UploadStringTaskAsync(request.Response_URL, JsonConvert.SerializeObject(data));
-                }
+                //using (var wc = new WebClient())
+                //{
+                //    await wc.UploadStringTaskAsync(request.Response_URL, JsonConvert.SerializeObject(data));
+                //}
 
-                return "Testing";
+                return JsonConvert.SerializeObject(data);
             };
         }
 
