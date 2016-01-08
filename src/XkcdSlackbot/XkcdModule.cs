@@ -53,12 +53,13 @@ namespace XkcdSlackbot
                     unfurl_links = true
                 };
 
-                using (var wc = new WebClient())
-                {
-                    await wc.UploadStringTaskAsync(ConfigurationManager.AppSettings["SLACK_WEBHOOK_URL"], JsonConvert.SerializeObject(data));
-                }
-
-                return 200;
+                //using (var wc = new WebClient())
+                //{
+                 //   await wc.UploadStringTaskAsync(ConfigurationManager.AppSettings["SLACK_WEBHOOK_URL"], JsonConvert.SerializeObject(data));
+                //}
+                var response = (Response)JsonConvert.SerializeObject(data);
+                response.ContentType = "application/json";
+                return response;
             };
         }
 
