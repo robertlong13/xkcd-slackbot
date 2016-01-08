@@ -47,17 +47,16 @@ namespace XkcdSlackbot
 
                 var data = new
                 {
-                    response_type = "ephemeral",
-                    text = "https://xkcd.com/3/",
+                    response_type = "in_channel",
+                    text = xkcdUrl,
                     channel = request.Channel_Name == "directmessage" ? "@" + request.User_Name
                                                                       : "#" + request.Channel_Name,
-                    unfurl_links = false,
-                    unfurl_media = false
+                    unfurl_links = true
                 };
 
                 using (var wc = new WebClient())
                 {
-                    wc.UploadStringTaskAsync(request.Response_URL, JsonConvert.SerializeObject(data));
+                    await wc.UploadStringTaskAsync(request.Response_URL, JsonConvert.SerializeObject(data));
                 }
 
                 return 200;
