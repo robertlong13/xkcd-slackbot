@@ -59,7 +59,7 @@ namespace XkcdSlackbot
                     await wc.UploadStringTaskAsync(request.Response_URL, JsonConvert.SerializeObject(data));
                 }
 
-                return 200;
+                return "Testing";
             };
         }
 
