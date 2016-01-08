@@ -58,8 +58,9 @@ namespace XkcdSlackbot
                 //{
                 //    await wc.UploadStringTaskAsync(request.Response_URL, JsonConvert.SerializeObject(data));
                 //}
-
-                return JsonConvert.SerializeObject(data);
+                var response = (Response)JsonConvert.SerializeObject(data);
+                response.ContentType = "application/json";
+                return response;
             };
         }
 
