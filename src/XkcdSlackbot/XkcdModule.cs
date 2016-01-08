@@ -57,7 +57,7 @@ namespace XkcdSlackbot
 
                 using (var wc = new WebClient())
                 {
-                    await wc.UploadStringTaskAsync(request.Response_URL, JsonConvert.SerializeObject(data));
+                    wc.UploadStringTaskAsync(request.Response_URL, JsonConvert.SerializeObject(data));
                 }
 
                 return 200;
